@@ -2,8 +2,11 @@
 <projectConfiguration>
     <configVersion>2</configVersion>
     <relativeTo>WORKSPACE</relativeTo>
-    <referencedLibrary type="PYTHON" name="AppiumLibrary" path="C:/Users/dvanquang/Python/Python37/Lib/site-packages/AppiumLibrary/__init__.py" dynamic="false"/>
-    <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Users/dvanquang/Python/Python37/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Program Files (x86)/Python/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="AppiumLibrary" path="C:/Program Files (x86)/Python/Lib/site-packages/AppiumLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="ExcelLibrary" path="C:/Program Files (x86)/Python/Lib/site-packages/ExcelLibrary.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary" path="C:/Program Files (x86)/Python/Lib/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="DataDriver" path="C:/Program Files (x86)/Python/Lib/site-packages/DataDriver/__init__.py" dynamic="false"/>
     <pythonpath/>
     <classpath/>
     <excludedForValidation/>
