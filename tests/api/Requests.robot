@@ -2,34 +2,31 @@
 Library    RequestsLibrary
 Library    Collections    
 Library    OperatingSystem    
-# Test Setup    Create Session    my session    ${END POINT}
+Test Setup    Create Session    my session    ${URL}
 
 *** Variables ***
 ${URL}                http://localhost:8080/app
 ${OK CODE}      200
 
 *** Test Cases ***
-Get Request With Basic Authentication Using Username And Password
-    ${auth}=    Create List    ToolsQA    TestPassword
-    Create Session    my session    http://restapi.demoqa.com    auth=${auth}
-    ${response}=    Get Request    my session   /authentication/CheckForAuthentication/
-    
-    ${status code}=    Convert To String    ${response.status_code}
-    Should Be Equal    ${status code}    ${OK CODE}
-    Log To Console    ${response.content}
-    
 Get Request (Get All Video Game)
-    Create Session    my session    ${URL}     
-    
     ${response}=    Get Request    my session    /videogames    
     
     ${status code}=    Convert To String    ${response.status_code}
     Should Be Equal    ${status code}    ${OK CODE}    
     Log To Console    ${response.content}    
     
-Post Request (Add A New Video Game)
-    Create Session    my session    ${URL}    
+    # Validate header values
+    Log To Console    ${response.headers}
+    ${content type}=    Get From Dictionary    ${response.headers}    Content-Type
+    Should Be Equal    ${content type}    application/xml
     
+    # Validate cookies value
+    Log To Console    ${response.cookies}
+    # ${cookies value}=    Get From Dictionary    ${response.cookies}    cookies_name
+    # Should Be Equal    ${cookies value}    expected    
+    
+Post Request (Add A New Video Game)
     ${body}=    Create Dictionary    id=13    name=tester2    releaseDate=2020-05-12T07:17:11.273Z    reviewScore=1    category=test    rating=good
     ${header}=    Create Dictionary    Content-Type=application/json
     
@@ -42,8 +39,6 @@ Post Request (Add A New Video Game)
     Should Contain    ${response content}    Record Added Successfully        
     
 Get Request (Get Video Game Details By Id)
-    Create Session    my session    ${URL}
-    
     ${response}=    Get Request    my session    /videogames/10
     
     ${status code}=    Convert To String    ${response.status_code}
@@ -53,8 +48,6 @@ Get Request (Get Video Game Details By Id)
     Should Contain    ${response content}    <id>10</id>    
     
 Put Request (Update Video Game Details)
-    Create Session    my session    ${URL}    
-    
     ${body}=    Create Dictionary    id=13    name=update_tester2    releaseDate=2020-05-12T07:17:11.273Z    reviewScore=1    category=test    rating=good
     ${header}=    Create Dictionary    Content-Type=application/json
     
@@ -67,8 +60,6 @@ Put Request (Update Video Game Details)
     Should Contain    ${response content}    update_tester2
 
 Delete Request (Delete Video Game)
-    Create Session    my session    ${URL}
-    
     ${response}=    Delete Request    my session    /videogames/13
     
     ${status code}=    Convert To String    ${response.status_code}

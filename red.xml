@@ -7,6 +7,7 @@
     <referencedLibrary type="PYTHON" name="ExcelLibrary" path="C:/Program Files (x86)/Python/Lib/site-packages/ExcelLibrary.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="RequestsLibrary" path="C:/Program Files (x86)/Python/Lib/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="DataDriver" path="C:/Program Files (x86)/Python/Lib/site-packages/DataDriver/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="JSONLibrary" path="C:/Program Files (x86)/Python/Lib/site-packages/JSONLibrary/__init__.py" dynamic="false"/>
     <pythonpath/>
     <classpath/>
     <excludedForValidation/>
