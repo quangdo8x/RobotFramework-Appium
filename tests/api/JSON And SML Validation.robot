@@ -18,14 +18,17 @@ Validate Complex Data From JSON Response
     
     ${json obj}=    Convert String to JSON    ${response.content}
     
+    # Single data validation
     ${country name}=    Get Value From Json    ${json obj}    name
     Log To Console    ${country name[0]}    
     Should Be Equal    ${country name[0]}    India    
     
+    # Multiple data in list validation
     ${border}=    Get Value From Json    ${json obj}    borders
     Log To Console    ${border[0]}
     Should Contain Any    ${border[0]}    AFG    BGD    BTN    MMR    CHN    NPL    PAK    LKA
     
+    # Single data in list validation
     ${border 1}=    Get From List    ${border[0]}    0
     Log To Console    ${border 1}
     Should Be Equal    ${border 1}    AFG    
@@ -86,5 +89,3 @@ Validate Data From XML Response
     ${city name}=    Get Element Text    ${xml obj}    .//CITY
     Log To Console    ${city name}    
     Element Text Should Be    ${xml obj}    Seattle    .//CITY
-
-    # Check multiple values
