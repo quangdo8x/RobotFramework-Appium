@@ -2,7 +2,7 @@
 Test Setup        Open Application    ${remote_url}    platformName=${platform_name}    platformVersion=${platform_version}    deviceName=${device_name}    appPackage=${app_package}    appActivity=${app_activity}
 Library           BuiltIn
 Library           AppiumLibrary
-Resource          ../elements/Calculator.robot
+Resource          ../../resources/Calculator.robot
 
 *** Variables ***
 ${remote_url}     http://127.0.0.1:4723/wd/hub

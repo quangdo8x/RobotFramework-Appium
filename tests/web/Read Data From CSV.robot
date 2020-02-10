@@ -1,6 +1,6 @@
 *** Settings ***
 Library    ExcelLibrary
-Resource   ../resources/Common Keywords.robot
+Resource   ../../resources/Common Keywords.robot
 
 *** Test Cases ***
 My First Test
