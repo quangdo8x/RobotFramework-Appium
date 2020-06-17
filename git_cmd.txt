@@ -1,0 +1,52 @@
+Fix Git SSL Certificate
+git config --global http.sslVerify false
+
+Execution Command:
+robot -d Results -i Login_Success -v env:UAT -P Libs -L DEBUG:INFO Tests
+
+CLONE REPO
+
+WITHOUT submodules:
+git clone -b Trunk <remote repo https link> <local repo path>
+git clone -b NoSubmodules https://offshorecode.kasikornbank.com:8443/test_automation/772_ccms.git C:/Users/quang_van.d/workspace/772_NoSub
+git clone -b 2-tool-to-convert-json-to-excel https://offshorecode.kasikornbank.com:8443/test_automation/780_csm.git C:/Users/quang_van.d/workspace/772_Json2Excel
+
+WITH submodules:
+git clone --recursive -b Trunk <remote repo https link> <local repo path>
+git clone --recursive -b Trunk https://offshorecode.kasikornbank.com:8443/test_automation/772_ccms.git C:/Users/quang_van.d/workspace/772_Trunk
+
+SUB MODULES
+
+Clone a new repository:
+$ git clone https://offshorecode.kasikornbank.com:8443/test_automation/257.03_midway.git
+
+Add three common libraries as submodules into repository:
+$ cd 257.03_midway
+
+ADD:
+git submodule add -b DevMaster https://offshorecode.kasikornbank.com:8443/test_automation/utilities.git Libs/Utilities
+git submodule add -b DevMaster https://offshorecode.kasikornbank.com:8443/test_automation/extendedrestlibrary.git Libs/ExtendedRESTLibrary
+git submodule add -b DevMaster https://offshorecode.kasikornbank.com:8443/test_automation/extendedsudslibrary.git Libs/ExtendedSudsLibrary
+
+REMOVE:
+git submodule deinit -f -- Libs/ExtendedRESTLibrary
+rm -rf .git/modules/Libs/ExtendedRESTLibrary
+git rm -rf Libs/ExtendedRESTLibrary
+
+Push the changes to gitlab:
+$ git add .
+$ git commit -m "add libs as submodules"
+$ git push origin DevMaster
+
+RESOLVE Conflict when merging A to B
+1.Checkout B
+2.Git fetch
+3.Git pull
+4.Git checkout -b A
+5.git merge origin/B
+6.Open A on editor tool
+7.Update code to remove conflict
+8.Commit changes
+9.Push A
+10.Create Merge Request
+11.Merge
